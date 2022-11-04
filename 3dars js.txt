@@ -1,0 +1,134 @@
+Type of tushuntirish
+
+###################################
+Math methodlarini korstaib ketish
+
+Math.ceil - Math.ceil() funksiyasi har doim yaxlitlanadi 
+va berilgan sondan katta yoki unga teng kichikroq butun sonni qaytaradi.
+
+Math.flor - Math.floor() funksiyasi har doim pastga yaxlitlanadi va berilgan 
+sondan kichik yoki unga teng eng katta butun sonni qaytaradi.
+
+Math.max | min - numberlar ichida eng kattasini | kichigini oberadi.
+
+Math.random() - random number oberadi. 0 - 1 gacha qiymat
+
+Math.round() funksiyasi eng yaqin butun songa yaxlitlangan son qiymatini qaytaradi.
+
+
+
+###################################
+
+Logical operators
+
+AND OR No  && || !
+
+
+alert( null || 2 || undefined );
+alert( alert(1) || 2 || alert(3) );
+alert( 1 && null && 2 );
+alert( alert(1) && alert(2) );
+alert( null || 2 && 3 || 4 );
+Yosh 14 dan 90 gacha ekanligini tekshirish uchun if shartini yozing.
+Yosh 14 dan 90 gacha EMASligini tekshirish uchun if shartini yozing
+
+
+Qaysi alert oynaga chiqadi.
+if (-1 || 0) alert( 'first' );
+if (-1 && 0) alert( 'second' );
+if (null || -1 && 1) alert( 'third' );
+
+
+
+
+#################################
+
+Functions haqida malumot berish retrun keyword.
+
+#####
+addeventlistenerlar haiqda malumot
+
+
+
+
+### Masalalar
+
+
+Biz uyda dam olamiz qachonki ish kuni bolmasa yoki dam olishda bolsak. uxlaskgina true dgan qiymat qaytaridagn dastur tuzish kerak.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Javoblar:
+
+if (age >= 14 && age <= 90)
+if (!(age >= 14 && age <= 90))
+if (age < 14 || age > 90)
+
+birinchi va ikkinchi
