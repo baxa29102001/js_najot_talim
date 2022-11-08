@@ -8,6 +8,76 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
+    <div class="container bg-light p-5 my-5">
+      <div class="w-100">
+        <div class="d-flex gap-5">
+          <div class="w-25">
+            <div class="bg-danger box" id="standart">Standart tarif</div>
+            <div class="bg-warning box" id="comfort">
+              Comfort tarif
+              <!-- <h2 class="text-white"></h2> -->
+            </div>
+            <div class="bg-success box" id="pro">
+              Pro tarif
+              <!-- <h2 class="text-white"></h2> -->
+            </div>
+          </div>
+          <div class="flex-grow-1">
+            <h1 class="mb-5">Yandex taxometr</h1>
+            <form class="w-50" id="form">
+              <div class="mb-3 d-flex align-items-center gap-3">
+                <div class="w-100">
+                  <label for="km" class="form-label mb-2"
+                    >Bosib otilgan yo'l</label
+                  >
+
+                  <div class="d-flex gap-3 align-items-center">
+                    <input id="km" type="number" class="form-control w-50" />
+                    <div class="d-flex flex-column gap-2">
+                      <svg
+                        width="47"
+                        height="2"
+                        viewBox="0 0 47 2"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="0.010867"
+                          y1="0.500118"
+                          x2="46.0109"
+                          y2="1.50012"
+                          stroke="black"
+                        />
+                      </svg>
+                      <svg
+                        width="47"
+                        height="2"
+                        viewBox="0 0 47 2"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="0.010867"
+                          y1="0.500118"
+                          x2="46.0109"
+                          y2="1.50012"
+                          stroke="black"
+                        />
+                      </svg>
+                    </div>
+
+                    <p class="m-0" id="price">10000 So'm</p>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-warning text-white">Hisoblash</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./js/main.js"></script>
   </body>
 </html>
