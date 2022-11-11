@@ -1,0 +1,25 @@
+Sonlar massivi berilgan bo'lsa, agar "6" soni qatorda birinchi yoki 
+
+oxirgi element sifatida ko'rinsa, true qiymatini qaytaring. 
+
+firstLast6([1, 2, 6]) → true
+firstLast6([6, 1, 2, 3]) → true
+firstLast6([13, 6, 1, 2, 3]) → false
+
+
+
+Return the number (count) of vowels in the given string.
+
+We will consider a, e, i, o, u as vowels for this Kata (but not y).
+
+The input string will only consist of lower case letters and/or spaces.
+
+
+getCount("abracadabra"), 5)
+
+
+
+hello -> HELLO dgan dastur tuzing.
+
+Shu dastur faqatgina unli harfni katta harf qiling. 
+

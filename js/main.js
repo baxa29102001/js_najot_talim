@@ -1,53 +1,75 @@
-// let num = 10;
+function loop() {
+  console.log("Loop qiymati");
+}
 
-// Ternary Operator
+// loop();
+// loop();
+// loop();
+// loop();
+// loop();
+// loop();
+// loop();
 
-// const toti = (aSmile, bSmile, cMile) => {
-//   return (aSmile && bSmile) || (!aSmile && !bSmile)
-//     ? "sdd"
-//     : cMile === "salom"
-//     ? true
-//     : false;
-// };
+// loop();
 
-// console.log(toti(true, true));
+// let i = 1;
+//  i = i - 2
+// i -= 2;
+// // i += 2;
 
-// const arr = ["1", 3, 6, true, {}, null, undefined, Symbol("ds")];
-// const arr = Array("1", "4", 6);
+// const arr = [1,2,3,4]
 
-// Slice m
+// for(let i =0; i< 5;i++){
+//     if(arr.includes(i)){
 
-// console.log(arr.slice(-3, -1));
-// Eng oxirigia malumot qoshob beradi.
-
-// console.log(arr.push("Eng oxirgi malumot"));
-// console.log(arr);
-
-// Eng oxirgi elementni tushirib beradi.
-// console.log(arr.pop());
-// Unshift malumotni boshidan qoshib beradi
-
-// console.log(arr.unshift("Birinchi elementman"));
-// console.log(arr);
-
-// Massviga birinchi element ob tashyadi.
-
-// console.log(arr.shift());
-
-// console.log(arr);
-// console.log(arr.splice(3, 2));
-
-// console.log(arr.includes("1"));
-
-// function findMin(a, b, c) {
-//   // code
+//     }
+// }
+// for (let i = 10; i > 0; i--) {
+//   console.log(i);
 // }
 
-// findMin(1, 5, 7); // -> 1
+// let i = 10;
+// while (i < 10) {
+//   console.log(i);
+//   i--;
+// }
+// let i = 1;
+// do {
+//   console.log(i);
+//   i++;
+// } while (i > 10);
 
-const posNeg = (a, b, negative) =>
-  (a > 0 && b < 0) || (b > 0 && a < 0) || negative ? true : false;
+// const arr = ["Bohodir", "Xurshid", "Sodiqjon", "dsds"];
 
-console.log(posNeg(-1, 1, false));
-console.log(posNeg(1, -1, false));
-console.log(posNeg(-1, -1, true));
+// function helloName(name) {
+//   console.log("Hello " + name);
+// }
+
+// const num = ["o", 3, 5, 6];
+// let name = "Bohodir";
+// for (let i = 0; i < 31; i++) {}
+
+let vowel = ["a", "e", "i", "o", "u"];
+let num = 0;
+function getCount(name) {
+  for (let i = 0; i < name.length; i++) {
+    if (vowel.includes(name[i])) {
+      num += 1;
+    }
+  }
+
+  console.log(num);
+}
+
+getCount("abracadabra");
+
+function toUpperCase(name) {
+  let result = "";
+  for (let i = 0; i < name.length; i++) {
+    result += name[i].toUpperCase();
+  }
+
+  return result;
+}
+
+toUpperCase("hello"); 'hEllO'
