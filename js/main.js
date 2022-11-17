@@ -71,17 +71,32 @@
 const input = document.getElementById("text");
 const form = document.querySelector("#form");
 const content = document.querySelector("#content");
+const sendBtn = document.querySelector("#sendBtn");
 
 let cards = [];
+let condition = "send";
+let findedCard;
+let findedCardIndex;
 
 const formHandler = (e) => {
   e.preventDefault();
-  const card = {
-    text: input.value,
-    id: Math.random().toFixed(2),
-  };
 
-  cards.push(card);
+  if (condition === "send") {
+    const card = {
+      text: input.value,
+      id: Math.random().toFixed(2),
+    };
+
+    cards.push(card);
+
+    input.value = "";
+  } else {
+    let editedObj = { ...findedCard, text: input.value };
+
+    cards.splice(findedCardIndex, 0, editedObj);
+    input.value = "";
+    // reset("send", "Jo'natish", "blue", "white");
+  }
 
   ekrangaChiqarish();
 };
@@ -98,7 +113,11 @@ function ekrangaChiqarish() {
           <p>
             ${cards[i].text}
           </p>
+          <div class="d-flex justify-content-end gap-2 w-100">
+          <button class="btn btn-warning text-white" onClick="editCard(${cards[i].id})">O'zgartirish</button>
           <button class="btn btn-danger" onClick="deleteCard(${cards[i].id})">O'chirish</button>
+          </div>
+
         </div>
       </div>
 
@@ -122,6 +141,24 @@ function deleteCard(elementId) {
   console.log(cards);
 
   ekrangaChiqarish();
+}
+
+function reset(con, textCon, bg, cl) {
+  condition = con;
+
+  sendBtn.textContent = textCon;
+  sendBtn.style.backgroundColor = bg;
+  sendBtn.style.color = cl;
+}
+
+function editCard(cardId) {
+  reset("edit", "Qayta nomlash", "yellow", "black");
+  findedCard = cards.find((item) => +item.id === cardId);
+  findedCardIndex = cards.findIndex((item) => +item.id === cardId);
+
+  input.value = findedCard.text;
+
+  deleteCard(cardId);
 }
 
 // ekrangaChiqarish();
