@@ -83,12 +83,10 @@ const formHandler = (e) => {
 
   cards.push(card);
 
-    ekrangaChiqarish();
+  ekrangaChiqarish();
 };
 
 function ekrangaChiqarish() {
-  console.log("Ishla");
-
   let result = "";
 
   for (let i = 0; i < cards.length; i++) {
@@ -100,6 +98,7 @@ function ekrangaChiqarish() {
           <p>
             ${cards[i].text}
           </p>
+          <button class="btn btn-danger" onClick="deleteCard(${cards[i].id})">O'chirish</button>
         </div>
       </div>
 
@@ -109,6 +108,20 @@ function ekrangaChiqarish() {
   console.log(result);
 
   content.innerHTML = result;
+}
+
+// ekrangaChiqarish()
+
+function deleteCard(elementId) {
+  let arr2 = cards.filter((element) => {
+    return +element.id !== elementId;
+  });
+
+  cards = arr2;
+
+  console.log(cards);
+
+  ekrangaChiqarish();
 }
 
 // ekrangaChiqarish();
