@@ -1,47 +1,17 @@
-const bohodir = document.querySelector("#bohodir");
-const xurshid = document.querySelector("#xurshid");
-const content = document.querySelector("#content");
-const btn = document.querySelector("#btn");
-const message = document.querySelector("#message");
-
-const arrMessage = [];
-let activeId = "xurshid";
-
-btn.addEventListener("click", sendMessage.bind(undefined));
-bohodir.addEventListener(
-  "click",
-  getMessageByFilter.bind(undefined, "bohodir")
-);
-xurshid.addEventListener(
-  "click",
-  getMessageByFilter.bind(undefined, "xurshid")
-);
-
-function sendMessage(e) {
-  e.preventDefault();
-
-  if (message.value) {
-    arrMessage.push({
-      from: "Xurshid2",
-      to: activeId,
-      msg: message.value,
-    });
-    getMessageByFilter(activeId);
+const prev = document.querySelector("#prev");
+const next = document.querySelector("#next");
+const carousel_container = document.querySelector(".carousel_container");
+const width = 400;
+let active = 0;
+function prevNextHandler(action) {
+  if (action === "prev") {
+    active--;
+  } else {
+    active++;
   }
+  // console.log(width * active);
+  carousel_container.style.transform = `translateX(-${width * active}px)`;
 }
 
-function getMessageByFilter(id) {
-  activeId = id;
-  let msgHtml = "";
-  arrMessage
-    .filter((item) => item.to === id)
-    .forEach((item) => {
-      msgHtml += `
-            <p>
-            ${item.msg}
-            </p>
-         `;
-    });
-
-  content.innerHTML = msgHtml;
-}
+prev.addEventListener("click", prevNextHandler.bind(undefined, "prev"));
+next.addEventListener("click", prevNextHandler.bind(undefined, "next"));
