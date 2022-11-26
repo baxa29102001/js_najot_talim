@@ -324,6 +324,4 @@ filter_category.addEventListener("change", (e) => {
   cards(arr2);
 });
 
-
-
-
+const checkBox = document.querySelector("#checkbox");
