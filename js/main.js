@@ -311,17 +311,42 @@ move.addEventListener("submit", (e) => {
   cards(moviesArr);
 });
 
-filter_category.addEventListener("change", (e) => {
-  // console.log(e.target.value);
-  let arr2 = moviesArr.filter((item) => {
-    if (item.categories.find((item) => item === e.target.value)) {
-      return true;
-    }
+// filter_category.addEventListener("change", (e) => {
+//   // console.log(e.target.value);
+//   let arr2 = moviesArr.filter((item) => {
+//     if (item.categories.find((item) => item === e.target.value)) {
+//       return true;
+//     }
 
-    return false;
-  });
+//     return false;
+//   });
 
-  cards(arr2);
-});
+//   cards(arr2);
+// });
 
 const checkBox = document.querySelector("#checkbox");
+const movie_title = document.querySelector("#movie_title");
+const year_movie = document.querySelector("#year_movie");
+document.querySelector("#search").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let arr;
+
+  arr = moviesArr
+    .filter((item) => {
+      if (!movie_title.value) return true;
+      return item.title
+        .toLocaleLowerCase()
+        .includes(movie_title.value.toLocaleLowerCase());
+    })
+    .filter((item) => {
+      if (!year_movie.value) return true;
+      return item.year === +year_movie.value;
+    })
+    .filter((item) => {
+      if (filter_category.value === "All") return true;
+      return item.categories.find((item) => item === filter_category.value);
+    });
+
+  console.log(arr);
+});
