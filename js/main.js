@@ -1,35 +1,26 @@
-// const prev = document.querySelector("#prev");
-// const next = document.querySelector("#next");
-// const carousel_container = document.querySelector(".carousel_container");
-// const width = 400;
-// let active = 0;
-// function prevNextHandler(action) {
-//   if (action === "prev") {
-//     active--;
-//   } else {
-//     active++;
-//   }
-//   // console.log(width * active);
-//   carousel_container.style.transform = `translateX(-${width * active}px)`;
+// let str = "We are chempion, 7 times,we are stupid";
+
+//  regex birinchi uslub
+
+// let regexExample = /we/gi;
+
+// console.log(str.match(regexExample));
+// function searchKeyWord(string) {
+//   //   regex 2 uslub
+//   //   let arr = ["Salom dunyo", "Salom sevgi", "Dunyo"];
+//   //   let regexExample = new RegExp(keyword, "i");
+//   //   let arr2 = arr.filter((item) => {
+//   //     return regexExample.test(item);
+//   //   });
+//   //   console.log(arr2);
+//   console.log(string.replace(/\w/g, "-"));
 // }
 
-// prev.addEventListener("click", prevNextHandler.bind(undefined, "prev"));
-// next.addEventListener("click", prevNextHandler.bind(undefined, "next"));
+// searchKeyWord(str);
+// searchKeyWord("times");
 
-// // let str = "We will, we will rock you";
+// userName = "Bohodir";
 
-// // console.log(str.match(/we/i));
+// console.log(userName);
 
-// function searchMovie(keyword) {
-//   let arr = ["Salom Dunyo", "sevgi", "Odamzod"];
-
-//   let searchKeyword = new RegExp(keyword, "g", "i");
-//   let arr2 = arr.filter((item) => {
-//     console.log(searchKeyword.test(item));
-//     return item.match(searchKeyword);
-//   });
-
-//   // console.log(arr2);
-// }
-
-// searchMovie("Sa");
+// var userName;
