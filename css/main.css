@@ -4,9 +4,9 @@ body {
 
 .container {
   width: 400px;
-  overflow-x: auto;
+  overflow-x: hidden;
 
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .carousel_container {
