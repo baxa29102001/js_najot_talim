@@ -1,40 +1,38 @@
-const name = "Bohodir";
+const content = document.querySelector("#content");
 
-function helloWorld() {
-  console.log("Hello World");
+function getPosts() {
+  let arr = [];
+
+  let result = "<p>Loading...</p>";
+  fetch("https://jsonplaceholder.typicode.com/post", {
+    method: "GET",
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Nimadir xato");
+
+      return res.json();
+    })
+    .then((res) => {
+      // console.log(res);
+      arr = res;
+      result = "";
+      arr.forEach((item) => {
+        result += `
+            <li>
+              ${item.title}
+             </li>
+    
+            `;
+      });
+    })
+    .catch(() => {
+      result = "<p>Serverdan malumot olishda xatolik</p>";
+    })
+    .finally(() => {
+      content.innerHTML = result;
+    });
+
+  content.innerHTML = result;
 }
 
-// setTimeout(() => {
-//   console.log("Set TimeOut 1");
-// }, 2000);
-
-// setInterval(() => {
-//   console.log("Set interval");
-// }, 1000);
-
-// console.log("Simple Hello World");
-
-// helloWorld();
-
-let promise = new Promise((resolve, reject) => {
-  let result = setTimeout(() => {
-    resolve("Muaviqayatli amalga oshdi");
-  }, 3000);
-
-  return result;
-});
-
-console.log("Loading", true);
-
-promise
-  .then((res) => {
-    console.log(res);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
-  .finally(() => {
-    console.log("Finally");
-
-    console.log("Loading", false);
-  });
+getPosts();
