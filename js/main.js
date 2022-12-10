@@ -1,118 +1,142 @@
-const content = document.querySelector("#content");
-const btn = document.querySelector("button");
+const sendBookBtn = document.querySelector("#send");
+const getBookBtn = document.querySelector("#get");
+const getAllBook = document.querySelector("#getAllBook");
 
-function getPosts() {
-  let arr = [];
+function sendDataToFireBase() {
+  const bookData = {
+    title: "O'tkan kunlar",
+    price: "50000",
+    rate: 6,
+    desc: "Yaxshi kitoblardan iborat bolgan kitob",
+  };
 
-  const id = 2;
-
-  let result = "<p>Loading...</p>";
-  fetch(
-    `https://6391d454ac688bbe4c53df8b.mockapi.io/api/posts/instagram_posts?page=2&limit=2`,
-    {
-      method: "GET",
-      headers: {
-        autorization: "token",
-        "Content-Type": "application/json",
-      },
-    }
-  )
+  fetch("https://books-b8a06-default-rtdb.firebaseio.com/books.json", {
+    method: "POST",
+    body: JSON.stringify(bookData),
+  })
     .then((res) => {
-      if (!res.ok) throw new Error("Nimadir xato");
-
+      if (!res.ok) throw res;
       return res.json();
     })
     .then((res) => {
       console.log(res);
-      // arr = res;
-      // result = "";
-      // arr.forEach((item) => {
-      //   result += `
-      //       <li>
-      //         ${item.title}
-      //        </li>
-      //       `;
-      // });
-    })
-    .catch(() => {
-      result = "<p>Serverdan malumot olishda xatolik</p>";
-    })
-    .finally(() => {
-      content.innerHTML = result;
-    });
-
-  content.innerHTML = result;
-}
-
-getPosts();
-
-function sendData() {
-  const data = {
-    post_title: "Hello World",
-
-    post_desc:
-      " Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae incidunt fugit sapiente tempore adipisci, facere reiciendis ex iste vitae officia.",
-
-    created_at: new Date(),
-    comments: [],
-  };
-
-  fetch(
-    "https://6391d454ac688bbe4c53df8b.mockapi.io/api/posts/instagram_posts",
-    {
-      method: "POST",
-      body: JSON.stringify(data),
-    }
-  )
-    .then((res) => {
-      if (!res.ok) throw res;
-
-      return res.json();
-    })
-    .then((response) => {
-      console.log(response);
     })
     .catch((err) => {
       console.log(err);
     });
 }
 
-function deleteCard() {
+function getBookOne() {
   fetch(
-    `https://6391d454ac688bbe4c53df8b.mockapi.io/api/posts/instagram_posts/${5}`,
+    "https://books-b8a06-default-rtdb.firebaseio.com/books/-NIvr5qi6Sdm5okbhm_b.json",
     {
-      method: "DELETE",
-    }
-  )
-    .then((res) => {
-      if (!res.ok) throw res;
-
-      return res.json();
-    })
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-const changeData = async () => {
-  const data = {
-    post_title: "Hello World",
-  };
-  try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/post", {
       method: "GET",
+    }
+  )
+    .then((res) => {
+      if (!res.ok) throw res;
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    if (!response.ok) throw response;
-    const realRes = await response.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
+}
+function getAllBooks() {
+  fetch("https://books-b8a06-default-rtdb.firebaseio.com/books.json", {
+    method: "GET",
+  })
+    .then((res) => {
+      if (!res.ok) throw res;
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
-// deleteCard();
+sendBookBtn.addEventListener("click", sendDataToFireBase);
 
-changeData();
+getBookBtn.addEventListener("click", getBookOne);
+getAllBook.addEventListener("click", getAllBooks);
 
-btn.addEventListener("click", sendData);
+// function autorizathion() {
+//   const data = {
+//     username: "user123",
+//     password: "user123456",
+//   };
+//   fetch("https://task.samid.uz/v1/user/sign-in", {
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     method: "POST",
+//     body: JSON.stringify(data),
+//   })
+//     .then((res) => {
+//       console.log(res);
+//       return res.json();
+//     })
+//     .then((res) => {
+//       console.log(res);
+//     });
+// }
+
+// autorizathion();
+
+// function checkRate() {
+//   console.log(this.rate);
+//   return this.rate;
+// }
+
+// function Book(title, desc, rate, price) {
+//   this.title = title;
+//   this.desc = desc;
+//   this.rate = rate;
+
+//   this.price = price;
+// }
+
+// Book.prototype.checkRate = checkRate;
+
+// const book1 = new Book("Salom", "sasa", 10, 50000);
+
+// console.log(book1.checkRate());
+
+// const obj1 = {
+//   name: "Bohodir",
+//   lastName: "Rahmonov",
+
+//   fullName() {
+//     return this.name + " " + this.lastName;
+//   },
+// };
+// const obj2 = {
+//   name: "Xurshid",
+//   lastName: "Boriyev",
+// };
+
+// function Book(name, lastName) {
+//   this.name = name;
+//   this.lastName = lastName;
+//   this.fullName = function () {
+//     return this.name + " " + this.lastName;
+//   };
+// }
+
+// console.log([]);
+
+const arr = ["ns", "sasa", 32, "dsds", 434343];
+
+function pagination() {
+  const limit = 2;
+  const numCount = Math.ceil(arr.length / 2);
+
+  console.log(numCount);
+}
+
+pagination();
