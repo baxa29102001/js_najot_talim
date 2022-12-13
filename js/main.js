@@ -60,6 +60,33 @@ function getAllBooks() {
     });
 }
 
+function putOneBook() {
+  fetch(
+    "https://books-b8a06-default-rtdb.firebaseio.com/books/-NIvr5qi6Sdm5okbhm_b.json",
+    {
+      method: "PUT",
+      body: JSON.stringify({
+        title: "Edited",
+        price: "50000",
+        rate: 6,
+        desc: "Edited",
+      }),
+    }
+  )
+    .then((res) => {
+      if (!res.ok) throw res;
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+putOneBook();
+
 sendBookBtn.addEventListener("click", sendDataToFireBase);
 
 getBookBtn.addEventListener("click", getBookOne);
@@ -129,14 +156,3 @@ getAllBook.addEventListener("click", getAllBooks);
 // }
 
 // console.log([]);
-
-const arr = ["ns", "sasa", 32, "dsds", 434343];
-
-function pagination() {
-  const limit = 2;
-  const numCount = Math.ceil(arr.length / 2);
-
-  console.log(numCount);
-}
-
-pagination();
