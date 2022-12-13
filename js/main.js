@@ -1,158 +1,94 @@
-const sendBookBtn = document.querySelector("#send");
-const getBookBtn = document.querySelector("#get");
-const getAllBook = document.querySelector("#getAllBook");
+// "use strict";
 
-function sendDataToFireBase() {
-  const bookData = {
-    title: "O'tkan kunlar",
-    price: "50000",
-    rate: 6,
-    desc: "Yaxshi kitoblardan iborat bolgan kitob",
-  };
+// let name = "Bohodir";
 
-  fetch("https://books-b8a06-default-rtdb.firebaseio.com/books.json", {
-    method: "POST",
-    body: JSON.stringify(bookData),
-  })
-    .then((res) => {
-      if (!res.ok) throw res;
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+// var userName = "Bohodir";
 
-function getBookOne() {
-  fetch(
-    "https://books-b8a06-default-rtdb.firebaseio.com/books/-NIvr5qi6Sdm5okbhm_b.json",
-    {
-      method: "GET",
-    }
-  )
-    .then((res) => {
-      if (!res.ok) throw res;
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-function getAllBooks() {
-  fetch("https://books-b8a06-default-rtdb.firebaseio.com/books.json", {
-    method: "GET",
-  })
-    .then((res) => {
-      if (!res.ok) throw res;
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
+// console.log(userName);
+// class
 
-function putOneBook() {
-  fetch(
-    "https://books-b8a06-default-rtdb.firebaseio.com/books/-NIvr5qi6Sdm5okbhm_b.json",
-    {
-      method: "PUT",
-      body: JSON.stringify({
-        title: "Edited",
-        price: "50000",
-        rate: 6,
-        desc: "Edited",
-      }),
-    }
-  )
-    .then((res) => {
-      if (!res.ok) throw res;
-      return res.json();
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-
-putOneBook();
-
-sendBookBtn.addEventListener("click", sendDataToFireBase);
-
-getBookBtn.addEventListener("click", getBookOne);
-getAllBook.addEventListener("click", getAllBooks);
-
-// function autorizathion() {
-//   const data = {
-//     username: "user123",
-//     password: "user123456",
-//   };
-//   fetch("https://task.samid.uz/v1/user/sign-in", {
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     method: "POST",
-//     body: JSON.stringify(data),
-//   })
-//     .then((res) => {
-//       console.log(res);
-//       return res.json();
-//     })
-//     .then((res) => {
-//       console.log(res);
-//     });
+// function Person(person) {
+//   this.person = person;
 // }
 
-// autorizathion();
+// class Person {
+//   constructor(name, lastName) {
+//     this.userName = name;
+//     this.lastName = lastName;
+//   }
 
-// function checkRate() {
-//   console.log(this.rate);
-//   return this.rate;
+//   showFullName() {
+//     console.log(this.lastName + " " + this.userName + "N80");
+//   }
 // }
 
-// function Book(title, desc, rate, price) {
-//   this.title = title;
-//   this.desc = desc;
-//   this.rate = rate;
+// const toxir = new Person("Toxir", "UsmonAliyev");
+// const sodiqjon = new Person("Toxir", "UsmonAliyev");
+// const asad = new Person("Toxir", "UsmonAliyev");
+// toxir.showFullName();
 
-//   this.price = price;
+class Animal {
+  constructor(name) {
+    this.name = name;
+    this.speed = 0;
+  }
+
+  run(speed) {
+    this.speed = speed;
+
+    console.log(`${this.name} is running ${this.speed}`);
+  }
+
+  stop() {
+    console.log(this);
+    console.log(`${this.name} is stopped`);
+  }
+}
+
+const leopard = new Animal("Leopard");
+
+// // leopard.run(100);
+// // leopard.stop();
+
+// class Rabbit extends Animal {
+//   constructor(userName, legs) {
+//     super(userName);
+//     this.legs = legs;
+//   }
+//   stop() {
+//     console.log("Rabbit Stop");
+//   }
+//   showName() {
+//     super.stop();
+//     console.log(this.legs);
+//   }
 // }
 
-// Book.prototype.checkRate = checkRate;
+// const quyoncha = new Rabbit("Quyoncha", 4);
 
-// const book1 = new Book("Salom", "sasa", 10, 50000);
+// quyoncha.showName();
+// quyoncha.stop();
 
-// console.log(book1.checkRate());
+// console.log(this);
 
-// const obj1 = {
+// const obj = {
 //   name: "Bohodir",
 //   lastName: "Rahmonov",
-
-//   fullName() {
-//     return this.name + " " + this.lastName;
-//   },
-// };
-// const obj2 = {
-//   name: "Xurshid",
-//   lastName: "Boriyev",
+//   fullName: function () {
+//     console.log(this.lastName);
+//   }, 
 // };
 
-// function Book(name, lastName) {
-//   this.name = name;
-//   this.lastName = lastName;
-//   this.fullName = function () {
-//     return this.name + " " + this.lastName;
-//   };
-// }
+// // obj.fullName();
 
-// console.log([]);
+// // function helloWorld(e, name) {
+// //   console.log(e);
+// //   console.log(name);
+// //   console.log(this);
+// // }
+
+// const btn = document.querySelector("button");
+
+// // helloWorld.apply(obj,['d']);
+
+// btn.addEventListener("click", leopard.stop.bind(leopard));
